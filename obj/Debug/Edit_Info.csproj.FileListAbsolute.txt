@@ -12,3 +12,8 @@ D:\Project Công Ty\Edit_Info\bin\Debug\Edit_Info.exe
 D:\Project Công Ty\Edit_Info\bin\Debug\Edit_Info.pdb
 D:\Project Công Ty\Edit_Info\obj\Debug\Edit_Info.exe
 D:\Project Công Ty\Edit_Info\obj\Debug\Edit_Info.pdb
+D:\Project Công Ty\Edit_Info\bin\Debug\Dapper.dll
+D:\Project Công Ty\Edit_Info\bin\Debug\Newtonsoft.Json.dll
+D:\Project Công Ty\Edit_Info\bin\Debug\Dapper.xml
+D:\Project Công Ty\Edit_Info\bin\Debug\Newtonsoft.Json.xml
+D:\Project Công Ty\Edit_Info\obj\Debug\Edit_Info.csproj.CopyComplete

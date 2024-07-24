@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Edit_Info.ViewMoel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace Edit_Info
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new FarmVM();
+          
         }
     }
 }

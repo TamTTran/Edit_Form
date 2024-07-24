@@ -7,8 +7,9 @@ using System.Windows.Markup;
 
 namespace Edit_Info.Model
 {
-    public class Farm
+    public class FarmModel
     {
+     
         public string LocationID { get; set; }
 
         public string Name { get; set; }

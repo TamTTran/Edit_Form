@@ -19,43 +19,10 @@ namespace Edit_Info.Repository
         {
             using (IDbConnection db = new SqlConnection(_connectionString))
             {
-                return db.Query<FarmModel>("SELECT * FROM db_test");
+                return db.Query<FarmModel>("SELECT * FROM tb_test");
             }
         }
 
-        public FarmModel GetFarmModelById(int id)
-        {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                return db.QueryFirstOrDefault<FarmModel>("SELECT * FROM FarmModels WHERE Id = @Id", new { Id = id });
-            }
-        }
-
-        public void AddFarmModel(FarmModel user)
-        {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                string sqlQuery = "INSERT INTO FarmModels (Name, Email) VALUES(@Name, @Email)";
-                db.Execute(sqlQuery, user);
-            }
-        }
-
-        public void UpdateFarmModel(FarmModel user)
-        {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                string sqlQuery = "UPDATE FarmModels SET Name = @Name, Email = @Email WHERE Id = @Id";
-                db.Execute(sqlQuery, user);
-            }
-        }
-
-        public void DeleteFarmModel(int id)
-        {
-            using (IDbConnection db = new SqlConnection(_connectionString))
-            {
-                string sqlQuery = "DELETE FROM FarmModels WHERE Id = @Id";
-                db.Execute(sqlQuery, new { Id = id });
-            }
-        }
+        
     }
 }

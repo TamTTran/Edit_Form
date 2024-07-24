@@ -66,7 +66,7 @@
     <Compile Include="Command\DelegateCommandModel.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Command\WebJsonProcess.cs" />
-    <Compile Include="Model\MenuModel.cs" />
+    <Compile Include="Model\RecodeModel.cs" />
     <Compile Include="Repository\FarmRepository.cs" />
     <Compile Include="ViewMoel\FarmVM.cs" />
     <Page Include="MainWindow.xaml">

@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" WindowState="Maximized">
+ 
+
     <Grid>
 
         <Grid.RowDefinitions>
@@ -26,15 +28,15 @@
 
         <TextBlock Background="AliceBlue" Grid.Row="0" VerticalAlignment="Center" Text="Thông tin trang trại"></TextBlock>
 
-        <DataGrid
-  ItemsSource="{Binding entitylistmenu,UpdateSourceTrigger=PropertyChanged}"
-  SelectedItem="{Binding menuSelected,UpdateSourceTrigger=PropertyChanged}"
+  <DataGrid
+  ItemsSource = "{ Binding FarmSource,UpdateSourceTrigger=PropertyChanged}"
+  SelectedItem= "{Binding entityListMenu, UpdateSourceTrigger=PropertyChanged}"
   Padding="2"
   CanUserAddRows="False"
   Grid.Row="1"
   AutoGenerateColumns="False"
   GridLinesVisibility="None" HorizontalContentAlignment="Center"
-  Background="Transparent"  AlternationCount="2" AlternatingRowBackground="LightCyan" Grid.ColumnSpan="3" Margin="0,0,20,0">
+  Background="AliceBlue"  AlternationCount="2" AlternatingRowBackground="Gray" Margin="0,0,20,0">
 
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn  Binding="{Binding ischeck, UpdateSourceTrigger=PropertyChanged}" CanUserSort="False">
@@ -43,16 +45,16 @@
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center">
                             <CheckBox VerticalAlignment="Center"
-                                      IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}},Path=DataContext.SetallSouth}"></CheckBox>
+                                      IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}},Path=DataContext.IsCheck}"></CheckBox>
                         </StackPanel>
                     </DataGridCheckBoxColumn.Header>
                 </DataGridCheckBoxColumn>
-                <DataGridTextColumn Binding="{Binding menuid,UpdateSourceTrigger=PropertyChanged}"  Header="Menu ID"  Width="auto" IsReadOnly="True" />
-                <DataGridTextColumn Binding="{Binding locationID,UpdateSourceTrigger=PropertyChanged}" Header="Menu Name" IsReadOnly="True"  Width="auto" />
-                <DataGridTextColumn Binding="{Binding locationName,UpdateSourceTrigger=PropertyChanged}" Header="Location Name" IsReadOnly="True" Width="auto" />
-                <DataGridTextColumn Binding="{Binding nameEINV,UpdateSourceTrigger=PropertyChanged}" Header="Name EINV" IsReadOnly="True" Width="auto" />
-                <DataGridTextColumn Binding="{Binding addressEINV,UpdateSourceTrigger=PropertyChanged}" Header="Address EINV" IsReadOnly="True" Width="auto" />
-                <DataGridTextColumn Binding="{Binding tax,UpdateSourceTrigger=PropertyChanged}" Header="Tax" IsReadOnly="True" Width="auto" />
+                <!--<DataGridTextColumn Binding="{Binding menuid,UpdateSourceTrigger=PropertyChanged}"  Header="Menu ID"  Width="auto" IsReadOnly="True" />-->
+                <DataGridTextColumn Binding="{Binding ID,UpdateSourceTrigger=PropertyChanged}" Header="Location ID" IsReadOnly="True"  Width="auto" />
+                <DataGridTextColumn Binding="{Binding txtlocationName,UpdateSourceTrigger=PropertyChanged}" Header="Location Name" IsReadOnly="True" Width="auto" />
+                <DataGridTextColumn Binding="{Binding txtnameEINV,UpdateSourceTrigger=PropertyChanged}" Header="Name EINV" IsReadOnly="True" Width="auto" />
+                <DataGridTextColumn Binding="{Binding txtaddressEINV,UpdateSourceTrigger=PropertyChanged}" Header="Address EINV" IsReadOnly="True" Width="auto" />
+                <DataGridTextColumn Binding="{Binding txttax,UpdateSourceTrigger=PropertyChanged}" Header="Tax" IsReadOnly="True" Width="auto" />
             </DataGrid.Columns>
         </DataGrid>
 

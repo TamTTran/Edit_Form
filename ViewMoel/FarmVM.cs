@@ -19,9 +19,7 @@ namespace Edit_Info.ViewMoel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        string connectionString = "Data Source=TRAN_THANH_TAM;Initial Catalog=db_test;Integrated Security=True";
-
-      
+        private  string connectionString = "Data Source=TRAN_THANH_TAM;Initial Catalog=db_test;Integrated Security=True";
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -44,11 +42,11 @@ namespace Edit_Info.ViewMoel
         {
             try
             {
-                if (enitityListMenu != null)
+                if (entityListMenu != null)
                 {
                     await Application.Current.Dispatcher.InvokeAsync(new Action(() =>
                     {
-                        enitityListMenu = new ObservableCollection<MenuModel>(_enitityListMenu.Select(c => { c.IsCheck = value; return c; }));
+                        entityListMenu = new ObservableCollection<FarmModel>(_entityListMenu.Select(c => { c.IsCheck = value; return c; }));
                     }));
                 }
             }
@@ -77,7 +75,6 @@ namespace Edit_Info.ViewMoel
 
         public FarmVM()
         {
-           
             FillData();
         }
 
@@ -97,21 +94,32 @@ namespace Edit_Info.ViewMoel
             }
         }
 
-        public ObservableCollection<MenuModel> _enitityListMenu;
+        public ObservableCollection<FarmModel> _entityListMenu;
 
-        public ObservableCollection<MenuModel> enitityListMenu
+        public ObservableCollection<FarmModel> entityListMenu
         {
-            get => _enitityListMenu;
+            get => _entityListMenu;
             set
             {
-                _enitityListMenu = value;
-                OnPropertyChanged("enitityListMenu");
+                _entityListMenu = value;
+                OnPropertyChanged("entityListMenu");
             }
         }
 
         #endregion Enitity
 
         #region TextBox
+
+        public string _txtLocationID;
+        public string txtLocationID
+        {
+            get => _txtLocationID;
+            set
+            {
+                _txtLocationID = value;
+                OnPropertyChanged("ID");
+            }
+        }
 
         public string _txtLocationName;
 
@@ -190,8 +198,19 @@ namespace Edit_Info.ViewMoel
         {
             FarmRepository farmRepository = new FarmRepository(connectionString);
             var model = farmRepository.GetAllFarmModels();
-            FarmSource = new ObservableCollection<FarmModel>(model);
+             FarmSource = new ObservableCollection<FarmModel>();
+            foreach (var item in model)
+            {
+                FarmModel farmModel = new FarmModel();
+                farmModel.LocationID = item.LocationID;
+                farmModel.LocationName = item.LocationName;
+                farmModel.AddressEINV = item.AddressEINV;
+                farmModel.NameEINV = item.NameEINV;
+                farmModel.Tax = item.Tax;
 
+                FarmSource.Add(farmModel);
+
+            }
         }
 
         #endregion function
